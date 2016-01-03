@@ -1,0 +1,6 @@
+<%% var ejsRoot = '../../'; %>
+<%%- include(ejsRoot + 'data/_data', {}); %>
+<%% var data = getData(); data.root = '../../'; %>
+<%%- include(ejsRoot + 'parts/_header', {data:data}); %>
+<%%- include(ejsRoot + 'components/<%= name %>/_<%= name %>', {data:data}); <%- end %> %>
+<%%- include(ejsRoot + 'parts/_footer', {data:data}); %>

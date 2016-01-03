@@ -1,0 +1,12 @@
+<%% var ejsRoot = '../../'; %>
+<%% if (typeof data === 'undefined') { %>
+  <%%- include(ejsRoot + 'data/_data', {}); %>
+  <%% var data = getData(); %>
+<%% } %>
+<%% if (typeof modifier === 'undefined') { var modifier = ''; } <%- end %> %>
+<%% var name = '<%= name %>'; <%- end %> %>
+<!-- <%%= name %> -->
+<div class="<%%= name %> <%%= modifier %>">
+
+</div>
+<!-- /<%%= name %> -->
