@@ -1,0 +1,14 @@
+<%% var ejsRoot = '../../'; %>
+<%% if (typeof data === 'undefined') { %><%%- include(ejsRoot + 'data/_data', {}); %>
+<%% var data = getData(); %><%% } %>
+<%% data.root = '../../pc/'; %>
+<%% var name = '<%= name %>'; <%- end %> %>
+/*
+#styleguide
+.<%= name %> コンポーネント
+
+@display:block
+```
+<%%- include(ejsRoot + 'components/' + name + '/_' + name, {data:data}); %>
+```
+*/
