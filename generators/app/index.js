@@ -46,6 +46,11 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath(baseName + '/' + 'index.ejs'),
       { name:baseName, end: '%>' }
     );
+    this.fs.copyTpl(
+      this.templatePath('_template-guide.ejs'),
+      this.destinationPath(baseName + '/' + '_' + baseName + '-guide.ejs'),
+      { name:baseName, end: '%>' }
+    );
   },
 
   install: function () {

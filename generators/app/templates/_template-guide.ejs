@@ -4,9 +4,13 @@
 <%% data.root = '../../pc/'; %>
 <%% var name = '<%= name %>'; <%- end %> %>
 /*
+#overview
+<%= name %>
+%%%
+*/
 #styleguide
-.<%= name %> コンポーネント
-
+.<%= name %>
+%%%
 @display:block
 ```
 <%%- include(ejsRoot + 'components/' + name + '/_' + name, {data:data}); %>
