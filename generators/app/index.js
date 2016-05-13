@@ -4,18 +4,18 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
+  constructor: function () {
+    yeoman.generators.Base.apply(this, arguments);
+    this.argument('moduleName', { type: String, required: false, optional: true });
+  },
   prompting: function () {
+    if (typeof this.moduleName !== 'undefined') { return true; }
     var done = this.async();
-
-    // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the geometric ' + chalk.red('generator-holiday') + ' generator!'
-    ));
 
     var prompts = [{
       name: 'moduleName',
       message: 'type new module name, please',
-      default: 'newName'
+      default: this.modulename
     }];
 
     this.prompt(prompts, function (props) {
