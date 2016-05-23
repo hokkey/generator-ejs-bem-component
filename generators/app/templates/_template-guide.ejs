@@ -1,6 +1,6 @@
 <%% var ejsRoot = '../../'; %>
-<%% if (typeof data === 'undefined') { %><%%- include(ejsRoot + 'data/_data', {}); %>
-<%% var data = getData(); %><%% } %>
+<%% if (typeof data === 'undefined') { include(ejsRoot + 'data/_data', {}); var data = getData(); } %>
+<%% if (typeof util === 'undefined') { include(ejsRoot + 'util/_util', {}); var util = getUtil(); } %>
 <%% data.root = '../../pc/'; %>
 <%% var name = '<%= name %>'; <%- end %> %>
 /*

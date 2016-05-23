@@ -1,10 +1,8 @@
 <%% var ejsRoot = '../../'; %>
-<%% if (typeof data === 'undefined') { %>
-  <%%- include(ejsRoot + 'data/_data', {}); %>
-  <%% var data = getData(); %>
-<%% } %>
-<%% if (typeof modifier === 'undefined') { var modifier = ''; } <%- end %> %>
+<%% if (typeof data === 'undefined') { include(ejsRoot + 'data/_data', {}); var data = getData(); } %>
+<%% if (typeof util === 'undefined') { include(ejsRoot + 'util/_util', {}); var util = getUtil(); } %>
 <%% var name = '<%= name %>'; <%- end %> %>
+<%% if (typeof modifier === 'undefined') { var modifier = ''; } else { modifier = util.setModifier(name, modifier); } %>
 <!-- <%%= name %> -->
 <div class="<%%= name %> <%%= modifier %>">
 
