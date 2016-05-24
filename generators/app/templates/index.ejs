@@ -2,6 +2,7 @@
 <%% var ejsRoot = '../../'; %>
 <%% if (typeof data === 'undefined') { include(ejsRoot + 'data/_data', {}); var data = getData(); } %>
 <%% if (typeof util === 'undefined') { include(ejsRoot + 'util/_util', {}); var util = getUtil(); } %>
+<%% data.root = '../../'; %>
 <%% var name = '<%= name %>'; <%- end %> %>
 <%% if (typeof modifier === 'undefined') { var modifier = ''; } else { modifier = util.setModifier(name, modifier); } %>
 <%%- include(ejsRoot + 'parts/_header', {data:data}); %>
