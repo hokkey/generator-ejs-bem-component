@@ -4,7 +4,8 @@
 <%% if (typeof util === 'undefined') { include(ejsRoot + 'util/_util', {}); var util = getUtil(); } %>
 <%% data.root = '../../'; %>
 <%% var name = '<%= name %>'; <%- end %> %>
-<%% if (typeof modifier === 'undefined') { var modifier = ''; } else { modifier = util.setModifier(name, modifier); } %>
+<%% if (typeof modifier === 'undefined') { var modifier = ''; var originMod = '';} else { var originMod = modifier; modifier = util.setModifier(name, modifier); } %>
+<%% if (typeof modifier !== 'undefined' && modifier === '') { var modifier = ''; } %>
 <%%- include(ejsRoot + 'parts/_header', {data:data}); %>
 <%%- include(ejsRoot + 'components/<%= name %>/_<%= name %>', {data:data}); <%- end %> %>
 <%%- include(ejsRoot + 'parts/_footer', {data:data}); %>
