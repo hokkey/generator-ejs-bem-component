@@ -1,8 +1,9 @@
-<%% var ejsRoot = '../../'; %>
-<%% if (typeof data === 'undefined') { include(ejsRoot + 'data/_data', {}); var data = getData(); } %>
-<%% if (typeof util === 'undefined') { include(ejsRoot + 'util/_util', {}); var util = getUtil(); } %>
-<%% data.root = '../../pc/'; %>
-<%% var name = '<%= name %>'; <%- end %> %>
+<%% // start initialize
+  var component = '<%= name %>', ejsRoot = '../../', componentParams = [];
+  if (util == null) { include(c.ejsRoot + 'util/_util'); util = getUtil(); }
+  util.init()(util, ejsRoot, data, modifier, componentParams);
+  data.root = '../../pc/';
+<%- end %>%>
 /*
 #overview
 <%= name %>

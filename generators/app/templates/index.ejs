@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<%% var ejsRoot = '../../'; %>
-<%% if (typeof data === 'undefined') { include(ejsRoot + 'data/_data', {}); var data = getData(); } %>
-<%% if (typeof util === 'undefined') { include(ejsRoot + 'util/_util', {}); var util = getUtil(); } %>
-<%% data.root = '../../'; %>
-<%% var name = '<%= name %>'; <%- end %> %>
-<%% if (typeof modifier === 'undefined') { var modifier = ''; var originMod = '';} else { var originMod = modifier; modifier = util.setModifier(name, modifier); } %>
-<%% if (typeof modifier !== 'undefined' && modifier === '') { var modifier = ''; } %>
+<%%
+// <%= name %>/index.ejs
+// for generating preview of <%= name %> component
+//
+
+  var component = '<%= name %>', ejsRoot = '../../', componentParams = [];
+  if (util == null) { include(c.ejsRoot + 'util/_util'); util = getUtil(); }
+  util.init()(util, ejsRoot, data, modifier, componentParams);
+  data.root = '../../';<%- end %>%>
+
 <%%- include(ejsRoot + 'parts/_header', {data:data}); %>
 <%%- include(ejsRoot + 'components/<%= name %>/_<%= name %>', {data:data}); <%- end %> %>
 <%%- include(ejsRoot + 'parts/_footer', {data:data}); %>
