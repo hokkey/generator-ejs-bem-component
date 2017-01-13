@@ -5,7 +5,8 @@
   this.name = '<%= name %>';
   this.ejsRoot = '../../';
   this.params = [
-    { param: 'modifier', default: '' }
+    { param: 'modifier', default: '' },
+    { param: 'text', default: 'default text' }
   ];
   if (typeof util === 'undefined') { include(this.ejsRoot + 'util/_util'); util = getUtil(); }
   util.init()(util, this);
