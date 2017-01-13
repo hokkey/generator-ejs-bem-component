@@ -1,7 +1,7 @@
 <%%
 // <%= name %>/index.ejs
 // A wrapper HTML for previewing "<%= name %> component
-  this.name = '<%= name %>';
+  this.name = '<%= name %>'; var name = this.name;
   this.ejsRoot = '../../';
   this.params = [];
   if (typeof util === 'undefined') { include(this.ejsRoot + 'util/_util'); util = getUtil(); }
@@ -9,5 +9,5 @@
   data.root = '../../pc/';
 <%- end %>%>
 <%%- include(ejsRoot + 'parts/_header', {data:data}); %>
-<%%- include(ejsRoot + 'components/<%= name %>/_<%= name %>', {data:data}); <%- end %>%>
+<%%- include(ejsRoot + `components/${name}/_${name}`, {data:data}); %>
 <%%- include(ejsRoot + 'parts/_footer', {data:data}); %>

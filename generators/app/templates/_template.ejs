@@ -2,7 +2,7 @@
 // <%= name %>/_<%= name %>.ejs
 // A main HTML file of "<%= name %>" component
 //
-  this.name = '<%= name %>';
+  this.name = '<%= name %>'; var name = this.name;
   this.ejsRoot = '../../';
   this.params = [
     { param: 'modifier', default: '' },
@@ -13,7 +13,7 @@
 <%- end %>%>
 
 <!-- <%%= name %> -->
-<div class="<%%= name %> <%%= modifier %>">
+<div class="<%%= name %><%%- util.setModifier(name, modifier); %>">
   <p class="<%%= name %>__head"><%%= text %></p>
 </div>
 <!-- /<%%= name %> -->
