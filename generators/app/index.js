@@ -7,20 +7,19 @@ module.exports = yeoman.extend({
 
   constructor: function (args, opts) {
     yeoman.apply(this, arguments);
-    this.argument('moduleName', { type: String, required: false, optional: true });
+    this.argument('moduleName', {
+      desc: 'A name of the new component',
+      type: String,
+      required: false
+    });
   },
 
   prompting: function () {
-    // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the primo ' + chalk.red('generator-ejs-bem-component') + ' generator!'
-    ));
-
     const prompts = [{
       type: 'input',
       name: 'moduleName',
-      message: 'Type new component name, please',
-      default: this.modulename
+      message: 'What is tha name of the new component?',
+      when: typeof this.options.moduleName === 'undefined'
     }];
 
     return this.prompt(prompts).then(function (props) {
@@ -31,7 +30,15 @@ module.exports = yeoman.extend({
   },
 
   writing: function () {
-    const baseName = this.moduleName;
+    let baseName;
+
+    if (typeof this.options.moduleName === 'undefined') {
+      baseName = this.props.moduleName;
+
+    } else {
+      baseName = this.options.moduleName;
+    }
+
     const ejsName = '_' + baseName + '.ejs';
     const scssName = '_' + baseName + '.scss';
 

@@ -1,17 +1,18 @@
 <%%
 // <%= name %>/_<%= name %>.ejs
-// A main HTML file of <%= name %> component
+// A main HTML file of "<%= name %>" component
 //
-  var component = '<%= name %>', ejsRoot = '../../', componentParams = [
-    { param: 'header', default: 'Heading Text' },
-    { param: 'href',   default: '#' }
+  this.name = '<%= name %>';
+  this.ejsRoot = '../../';
+  this.params = [
+    { param: 'modifier', default: '' }
   ];
-  if (util == null) { include(c.ejsRoot + 'util/_util'); util = getUtil(); }
-  util.init()(util, ejsRoot, data, modifier, componentParams);
+  if (typeof util === 'undefined') { include(this.ejsRoot + 'util/_util'); util = getUtil(); }
+  util.init()(util, this);
 <%- end %>%>
 
-<!-- <%%= component %> -->
-<div class="<%%= component %> <%%= modifier %>">
-  <p class="<%= name %>__head"><%%= header %></p>
+<!-- <%%= name %> -->
+<div class="<%%= name %> <%%= modifier %>">
+  <p class="<%%= name %>__head"><%%= text %></p>
 </div>
-<!-- /<%%= component %> -->
+<!-- /<%%= name %> -->

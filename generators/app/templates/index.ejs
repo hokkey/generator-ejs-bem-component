@@ -1,13 +1,13 @@
 <%%
 // <%= name %>/index.ejs
-// for generating preview of <%= name %> component
-//
-
-  var component = '<%= name %>', ejsRoot = '../../', componentParams = [];
-  if (util == null) { include(c.ejsRoot + 'util/_util'); util = getUtil(); }
-  util.init()(util, ejsRoot, data, modifier, componentParams);
-  data.root = '../../';<%- end %>%>
-
+// A wrapper HTML for previewing "<%= name %> component
+  this.name = '<%= name %>';
+  this.ejsRoot = '../../';
+  this.params = [];
+  if (typeof util === 'undefined') { include(this.ejsRoot + 'util/_util'); util = getUtil(); }
+  if (typeof data === 'undefined') { include(this.ejsRoot + 'data/_data'); data = getData(); }
+  data.root = '../../pc/';
+<%- end %>%>
 <%%- include(ejsRoot + 'parts/_header', {data:data}); %>
-<%%- include(ejsRoot + 'components/<%= name %>/_<%= name %>', {data:data}); <%- end %> %>
+<%%- include(ejsRoot + 'components/<%= name %>/_<%= name %>', {data:data}); <%- end %>%>
 <%%- include(ejsRoot + 'parts/_footer', {data:data}); %>
