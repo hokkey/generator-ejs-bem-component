@@ -3,11 +3,9 @@
 // A wrapper HTML for previewing "<%= name %> component
   this.name = '<%= name %>'; var name = this.name;
   this.ejsRoot = '../../';
-  this.params = [];
   if (typeof util === 'undefined') { include(this.ejsRoot + 'util/_util'); util = getUtil(); }
   if (typeof data === 'undefined') { include(this.ejsRoot + 'data/_data'); data = getData(); }
   data.root = '../../pc/';
-<%- end %>%>
-<%%- include(ejsRoot + 'parts/_header', {data:data}); %>
+<%- end %>%><%%- include(ejsRoot + 'parts/_header', {data:data}); %>
 <%%- include(ejsRoot + `components/${name}/_${name}`, {data:data}); %>
 <%%- include(ejsRoot + 'parts/_footer', {data:data}); %>
