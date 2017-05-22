@@ -5,14 +5,37 @@
   this.name = '<%= name %>'; var name = this.name;
   this.ejsRoot = '../../';
   this.params = {
+    // Default parameter:
+    'elem': 'div',
+    'h': 3,
     'modifier': '',
-    'text': 'Default text here'
+    'head': '<span>Default head text</span>',
+    'body': '<span>Default body here</span>',
+    'text': 'Default text here',
+    'href': '',
+    'icon': '',
+    'items': [{
+      'elem': 'span',
+      'modifier': '',
+      'head': '',
+      'body': '',
+      'text': '',
+      'href': '',
+      'icon': ''
+    }]
   };
   if (typeof util === 'undefined') { include(this.ejsRoot + 'util/_util'); util = getUtil(); }
   util.init()(util, this);
 <%- end %>%>
 <!-- <%%= name %> -->
-<div class="<%%= name %><%%- util.setModifier(name, modifier); %>">
-  <p class="<%%= name %>__head"><%%= text %></p>
-</div>
+<<%%- elem %> class="<%%= name %><%%- util.setModifier(name, modifier); %><%%- util.printAttr('href', href); %>">
+  <%%# Head template %>
+  <h<%%- h %> class="<%%= name %>__head"><%%- head %></h<%%- h %>>
+  <%%# Body template %>
+  <p class="<%%= name %>__body"><%%- body %></p>
+  <%%# Loop template %>
+  <%% items.forEach((item) => { %>
+      <span><%%= item.text %></span>
+  <%% }); %>
+</<%%- elem %>>
 <!-- /<%%= name %> -->

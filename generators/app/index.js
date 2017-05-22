@@ -49,6 +49,12 @@ module.exports = yeoman.extend({
     );
 
     this.fs.copyTpl(
+      this.templatePath('_template-preview.ejs'),
+      this.destinationPath(baseName + '/_' + baseName + '-preview.ejs'),
+      {name: baseName, end: '%>'}
+    );
+
+    this.fs.copyTpl(
       this.templatePath('_template.scss'),
       this.destinationPath(baseName + '/' + scssName),
       { name:baseName }
