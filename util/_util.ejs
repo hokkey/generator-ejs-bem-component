@@ -15,12 +15,12 @@ getUtil = function () {
     },
 
     hasNoModifier: (modifiers) => {
-      var modifierArray = modifiers;
+      const modifierArray = modifiers;
       if (util.type('string', modifier)) {
         modifierArray = modifiers.replace(/\s+/, ' ').replace(/\s$/, '').modifiers.split(' ');
       }
 
-      var result = true;
+      let result = true;
       modifierArray.forEach((string) => {
         if (string.match(/^(i|j)s-/) === null && string !== '') {
           result = false;
@@ -75,7 +75,7 @@ getUtil = function () {
     },
 
     init: () => {
-      return function (util, component) {
+      return (util, component) => {
         // load global data
         if (typeof data === 'undefined') {
           include(ejsRoot + 'view/data/_data');
@@ -83,8 +83,8 @@ getUtil = function () {
         }
 
         // check params and set default value
-        var params = component.params;
-        for (var p in params) {
+        const params = component.params;
+        for (const p in params) {
           component[p] = params[p];
         }
       }

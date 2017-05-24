@@ -2,40 +2,38 @@
 // <%= name %>/_<%= name %>.ejs
 // A main HTML file of "<%= name %>" component
 //
-  this.name = '<%= name %>'; var name = this.name;
-  this.ejsRoot = '../../';
+  this.name = '<%= name %>'; const name = this.name;
+  this.ejsRoot = '../../'; const ejsRoot = this.ejsRoot;
   this.params = {
     // Default parameter:
-    'elem': 'div',
-    'h': 3,
     'modifier': '',
-    'head': '<span>Default head text</span>',
-    'body': '<span>Default body here</span>',
     'text': 'Default text here',
-    'href': '',
-    'icon': '',
-    'items': [{
-      'elem': 'span',
-      'modifier': '',
-      'head': '',
-      'body': '',
-      'text': '',
-      'href': '',
-      'icon': ''
-    }]
+    // 'elem': 'div',
+    // 'h': 3,
+    // 'head': '<span>Default head text</span>',
+    // 'body': '<span>Default body here</span>',
+    // 'href': '',
+    // 'icon': '',
+    // 'items': [{
+    //   'elem': 'span',
+    //   'modifier': '',
+    //   'head': '',
+    //   'body': '',
+    //   'text': '',
+    //   'href': '',
+    //   'icon': ''
+    // }]
   };
-  if (typeof util === 'undefined') { include(this.ejsRoot + 'util/_util'); util = getUtil(); }
+  if (typeof util === 'undefined') { include(ejsRoot + 'util/_util'); util = getUtil(); }
   util.init()(util, this);
 <%- end %>%>
 <!-- <%%= name %> -->
-<<%%- elem %> class="<%%= name %><%%- util.setModifier(name, modifier); %><%%- util.printAttr('href', href); %>">
+<div class="<%%= name %><%%- util.setModifier(name, modifier); %>"<%%# util.printAttr('href', href); %>>
   <%%# Head template %>
-  <h<%%- h %> class="<%%= name %>__head"><%%- head %></h<%%- h %>>
-  <%%# Body template %>
-  <p class="<%%= name %>__body"><%%- body %></p>
+  <!-- <h<%%# h %>> class="<%%# name %>__head"><%%# head %></h<%%# h %>> -->
   <%%# Loop template %>
-  <%% items.forEach((item) => { %>
-      <span><%%= item.text %></span>
-  <%% }); %>
-</<%%- elem %>>
+  <%%# items.forEach((item) => { %>
+      <!-- <span><%%# item.text %></span> -->
+  <%%# }); %>
+</div>
 <!-- /<%%= name %> -->
